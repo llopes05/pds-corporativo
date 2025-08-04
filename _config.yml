@@ -1,0 +1,10 @@
+title: "Processo Ágil - PDS Corporativo"
+description: "Processo de desenvolvimento de software ágil para o PDS Corporativo"
+theme: minima
+markdown: kramdown
+plugins:
+  - jekyll-mermaid
+
+# Mermaid configuration
+mermaid:
+  src: 'https://unpkg.com/mermaid@8.14.0/dist/mermaid.min.js'
