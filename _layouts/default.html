@@ -6,21 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title | default: site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
-    <script>
-      mermaid.initialize({
-        startOnLoad: true,
-        theme: 'default',
-        flowchart: {
-          useMaxWidth: true,
-          htmlLabels: true
-        }
-      });
-    </script>
+    
+    <!-- Mermaid CSS for better styling -->
+    <style>
+      .mermaid {
+        text-align: center;
+        margin: 20px 0;
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 6px;
+        border: 1px solid #e1e4e8;
+      }
+    </style>
   </head>
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
       {{ content }}
     </div>
+    
+    <!-- Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+      // Wait for page to load
+      window.addEventListener('load', function() {
+        // Initialize Mermaid
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: 'default',
+          themeVariables: {
+            primaryColor: '#0366d6',
+            primaryTextColor: '#24292e',
+            primaryBorderColor: '#0366d6',
+            lineColor: '#6a737d',
+            fontSize: '14px'
+          },
+          flowchart: {
+            useMaxWidth: true,
+            htmlLabels: true,
+            curve: 'basis'
+          }
+        });
+        
+        // Find all mermaid code blocks and render them
+        document.querySelectorAll('pre code.language-mermaid').forEach(function(element, index) {
+          const graphDefinition = element.textContent;
+          const graphId = 'mermaid-graph-' + index;
+          
+          // Create new div for the rendered graph
+          const graphDiv = document.createElement('div');
+          graphDiv.className = 'mermaid';
+          graphDiv.id = graphId;
+          graphDiv.textContent = graphDefinition;
+          
+          // Replace the code block with the graph div
+          element.parentNode.parentNode.replaceChild(graphDiv, element.parentNode);
+        });
+        
+        // Render all mermaid diagrams
+        mermaid.run();
+      });
+    </script>
   </body>
 </html>

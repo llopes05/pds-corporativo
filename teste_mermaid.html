@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Mermaid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .mermaid {
+            text-align: center;
+            margin: 20px 0;
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #e1e4e8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste de Renderização Mermaid</h1>
+    
+    <h2>Diagrama de Gerência Administrativa</h2>
+    <div class="mermaid">
+        flowchart TD
+            A[Acompanhar Métricas] --> B[Analisar Burndown]
+            B --> C[Revisar Impedimentos]
+            C --> D[Facilitar Daily Standups]
+            D --> E[Atualizar Documentação]
+            E --> F[Comunicar com Stakeholders]
+            F --> G[Preparar Relatórios]
+            G --> H[Identificar Melhorias]
+            H --> I[Planejar Ações Corretivas]
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#0366d6',
+                primaryTextColor: '#24292e',
+                primaryBorderColor: '#0366d6',
+                lineColor: '#6a737d',
+                fontSize: '14px'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<script type="module">
+  import mermaid from 'https://unpkg.com/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis'
+    },
+    themeVariables: {
+      primaryColor: '#0366d6',
+      primaryTextColor: '#24292e',
+      primaryBorderColor: '#0366d6',
+      lineColor: '#6a737d'
+    }
+  });
+  
+  // Force re-render of mermaid diagrams
+  document.addEventListener('DOMContentLoaded', function() {
+    mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  });
+</script>
