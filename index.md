@@ -8,7 +8,7 @@ Este documento define um processo ágil para desenvolvimento de software no cont
 
 ```mermaid
 flowchart TD
-    A[Início do Sprint] --> B[Planejamento Sprint]
+    A[Início do Sprint] --> B[Planejamento do Sprint]
     B --> C[Desenvolvimento]
     C --> D[Testes do Sistema]
     D --> E[Integração com BD Postgres]
@@ -18,7 +18,7 @@ flowchart TD
     H --> I[Retrospectiva]
     I --> J{Fim do Sprint?}
     J -->|Não| B
-    J -->|Sim| K[Release]
+    J -->|Sim| K[Lançamento]
     K --> A
 ```
 
@@ -36,13 +36,12 @@ flowchart TD
     F --> G[Planejar Tarefas]
 ```
 
-**Responsável:** Toda a equipe (Scrum Team)
+**Responsável:** Toda a equipe (Equipe Scrum)
 
 **Práticas Ágeis:**
-- Sprint Planning Meeting
-- Story Points
-- Planning Poker
-- Definition of Ready
+- Reunião de Planejamento do Sprint
+- Pontos de História
+- Definição de Pronto para Desenvolvimento
 
 ### 3.2 Desenvolvimento de Funcionalidades
 
@@ -51,8 +50,8 @@ flowchart TD
     A[Selecionar História] --> B[Analisar Requisitos]
     B --> C[Desenhar Solução]
     C --> D[Implementar Código]
-    D --> E[Code Review]
-    E --> F[Commit/Push]
+    D --> E[Revisão de Código]
+    E --> F[Confirmar/Enviar]
     F --> G{Mais Histórias?}
     G -->|Sim| A
     G -->|Não| H[Integração Contínua]
@@ -61,11 +60,11 @@ flowchart TD
 **Responsável:** Toda a equipe (Desenvolvedores)
 
 **Práticas Ágeis:**
-- Pair Programming
-- Test-Driven Development (TDD)
-- Continuous Integration
-- Code Review
-- Git Flow
+- Programação em Pares
+- Desenvolvimento Orientado por Testes
+- Integração Contínua
+- Revisão de Código
+- Fluxo Git
 
 ### 3.3 Testes do Sistema
 
@@ -87,11 +86,8 @@ flowchart TD
 **Responsável:** Luiz Felipe Pinheiro Lopes
 
 **Práticas Ágeis:**
-- Test Automation
-- Continuous Testing
-- Behavior-Driven Development (BDD)
-- Test Coverage Analysis
-- Regression Testing
+- Automação de Testes
+- Testes Contínuos
 
 ### 3.4 Conectar ao Banco de Dados Postgres
 
@@ -99,21 +95,21 @@ flowchart TD
 flowchart TD
     A[Analisar Requisitos de Dados] --> B[Modelar Banco de Dados]
     B --> C[Criar Scripts DDL]
-    C --> D[Configurar Connection Pool]
-    D --> E[Implementar DAOs/Repositories]
-    E --> F[Criar Migrations]
+    C --> D[Configurar Pool de Conexões]
+    D --> E[Implementar DAOs/Repositórios]
+    E --> F[Criar Migrações]
     F --> G[Testes de Conectividade]
-    G --> H[Testes de Performance BD]
+    G --> H[Testes de Desempenho BD]
     H --> I[Documentar Estrutura]
 ```
 
 **Responsável:** Luiz Felipe Pinheiro Lopes
 
 **Práticas Ágeis:**
-- Database Versioning
-- Automated Database Testing
-- Database Refactoring
-- Continuous Database Integration
+- Versionamento de Banco de Dados
+- Testes Automatizados de Banco de Dados
+- Refatoração de Banco de Dados
+- Integração Contínua de Banco de Dados
 
 ### 3.5 Conteinerização do Sistema
 
@@ -121,58 +117,53 @@ flowchart TD
 flowchart TD
     A[Analisar Arquitetura] --> B[Criar Dockerfile]
     B --> C[Configurar docker-compose]
-    C --> D[Build da Imagem]
-    D --> E[Testes de Container]
+    C --> D[Construir Imagem]
+    D --> E[Testes de Contêiner]
     E --> F[Otimizar Imagem]
     F --> G[Configurar Volumes]
     G --> H[Configurar Redes]
-    H --> I[Documentar Deploy]
-    I --> J[Push para Registry]
+    H --> I[Documentar Implantação]
+    I --> J[Enviar para Registro]
 ```
 
 **Responsável:** Samuel
 
 **Práticas Ágeis:**
-- Infrastructure as Code
-- Container Orchestration
-- Automated Deployment
-- Environment Parity
-- Immutable Infrastructure
+- Infraestrutura como Código
+- Orquestração de Contêineres
+- Implantação Automatizada
+- Paridade de Ambientes
+- Infraestrutura Imutável
 
 ### 3.6 Implantação na Web
 
 ```mermaid
 flowchart TD
-    A[Preparar Ambiente] --> B[Configurar CI/CD Pipeline]
-    B --> C[Deploy Staging]
-    C --> D[Testes em Staging]
+    A[Preparar Ambiente] --> B[Configurar Pipeline CI/CD]
+    B --> C[Implantar em Homologação]
+    C --> D[Testes em Homologação]
     D --> E[Aprovação para Produção]
-    E --> F[Deploy Produção]
-    F --> G[Verificação Pós-Deploy]
+    E --> F[Implantar em Produção]
+    F --> G[Verificação Pós-Implantação]
     G --> H[Monitoramento]
-    H --> I{Deploy OK?}
-    I -->|Não| J[Rollback]
-    I -->|Sim| K[Notificar Stakeholders]
+    H --> I{Implantação OK?}
+    I -->|Não| J[Reverter]
+    I -->|Sim| K[Notificar Partes Interessadas]
 ```
 
 **Responsável:** Luiz Felipe Pinheiro Lopes
 
-**Práticas Ágeis:**
-- Continuous Deployment
-- Blue-Green Deployment
-- Canary Releases
-- Automated Rollback
-- Infrastructure Monitoring
+
 
 ### 3.7 Gerência Administrativa
 
 ```mermaid
 flowchart TD
-    A[Acompanhar Métricas] --> B[Analisar Burndown]
+    A[Acompanhar Métricas] --> B[Analisar Gráfico de Burndown]
     B --> C[Revisar Impedimentos]
-    C --> D[Facilitar Daily Standups]
+    C --> D[Facilitar Reuniões Diárias]
     D --> E[Atualizar Documentação]
-    E --> F[Comunicar com Stakeholders]
+    E --> F[Comunicar com Partes Interessadas]
     F --> G[Preparar Relatórios]
     G --> H[Identificar Melhorias]
     H --> I[Planejar Ações Corretivas]
@@ -181,61 +172,59 @@ flowchart TD
 **Responsável:** Samuel
 
 **Práticas Ágeis:**
-- Daily Standups
-- Sprint Review
-- Sprint Retrospective
-- Burndown Charts
-- Velocity Tracking
-- Continuous Improvement
+- Reuniões Diárias
+- Revisão do Sprint
+- Retrospectiva do Sprint
+- Gráficos de Burndown
+- Acompanhamento de Velocidade
+- Melhoria Contínua
 
 ## 4. Papéis e Responsabilidades
 
 | Papel | Responsável | Atividades Principais |
 |-------|-------------|----------------------|
-| **Testador/QA** | Luiz Felipe Pinheiro Lopes | Testes do Sistema, Integração BD |
-| **DevOps Engineer** | Samuel | Conteinerização, Gerência |
-| **Desenvolvedor/Deploy** | Luiz Felipe Pinheiro Lopes | Implantação Web |
-| **Scrum Team** | Toda a equipe | Desenvolvimento, Planejamento |
+| **Testador/Garantia de Qualidade** | Luiz Felipe Pinheiro Lopes | Testes do Sistema, Integração BD |
+| **Engenheiro DevOps** | Samuel | Conteinerização, Gerência |
+| **Desenvolvedor/Implantação** | Luiz Felipe Pinheiro Lopes | Implantação Web |
+| **Equipe Scrum** | Toda a equipe | Desenvolvimento, Planejamento |
 
 ## 5. Práticas Ágeis por Categoria
 
 ### 5.1 Desenvolvimento
-- **Pair Programming:** Desenvolvimento colaborativo
-- **TDD:** Test-Driven Development
-- **Refactoring:** Melhoria contínua do código
-- **Code Review:** Revisão de código por pares
+- **Programação em Pares:** Desenvolvimento colaborativo
+- **Refatoração:** Melhoria contínua do código
+- **Revisão de Código:** Revisão de código por pares
 
 ### 5.2 Testes
-- **Test Automation:** Automatização de testes
-- **BDD:** Behavior-Driven Development
-- **Continuous Testing:** Testes contínuos no pipeline
+- **Automação de Testes:** Automatização de testes
+- **Testes Contínuos:** Testes contínuos no pipeline
 
 ### 5.3 DevOps
 - **CI/CD:** Integração e entrega contínua
-- **Infrastructure as Code:** Infraestrutura como código
-- **Container Orchestration:** Orquestração de containers
-- **Monitoring:** Monitoramento contínuo
+- **Infraestrutura como Código:** Infraestrutura como código
+- **Orquestração de Contêineres:** Orquestração de contêineres
+- **Monitoramento:** Monitoramento contínuo
 
 ### 5.4 Gerência
-- **Sprint Planning:** Planejamento de sprint
-- **Daily Standups:** Reuniões diárias
-- **Sprint Review:** Revisão do sprint
-- **Sprint Retrospective:** Retrospectiva para melhoria
+- **Planejamento de Sprint:** Planejamento de sprint
+- **Reuniões Diárias:** Reuniões diárias
+- **Revisão do Sprint:** Revisão do sprint
+- **Retrospectiva do Sprint:** Retrospectiva para melhoria
 
 ## 6. Métricas e Indicadores
 
-- **Velocity:** Pontos entregues por sprint
-- **Burndown Chart:** Progresso do sprint
-- **Lead Time:** Tempo de entrega das funcionalidades
-- **Deployment Frequency:** Frequência de deploys
-- **Mean Time to Recovery:** Tempo médio de recuperação
-- **Test Coverage:** Cobertura de testes
+- **Velocidade:** Pontos entregues por sprint
+- **Gráfico de Burndown:** Progresso do sprint
+- **Tempo de Entrega:** Tempo de entrega das funcionalidades
+- **Frequência de Implantação:** Frequência de implantações
+- **Tempo Médio de Recuperação:** Tempo médio de recuperação
+- **Cobertura de Testes:** Cobertura de testes
 
 ## 7. Ferramentas Recomendadas
 
-- **Versionamento:** Git/GitHub
+- **Controle de Versão:** Git/GitHub
 - **CI/CD:** GitHub Actions, Jenkins
-- **Containers:** Docker, Kubernetes
+- **Contêineres:** Docker, Kubernetes
 - **Banco de Dados:** PostgreSQL
 - **Monitoramento:** Prometheus, Grafana
 - **Gestão:** Jira, Trello
